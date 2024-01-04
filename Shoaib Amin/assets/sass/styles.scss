@@ -1,0 +1,54 @@
+
+.glitch{
+    color:white;
+    font-size:24px;
+    position:relative;
+    width:400px;
+    margin:0 auto;
+  }
+
+  .increase-size{
+    font-size: 28px;
+}
+  @keyframes noise-anim{
+    $steps:10;
+    @for $i from 0 through $steps{
+      #{percentage($i*(1/$steps))}{
+        clip:rect(random(100)+px,9999px,random(100)+px,0);
+      }
+    }
+  }
+  .glitch:after{
+    content:attr(data-text);
+    position:absolute;
+    left:1px;
+    text-shadow:-0.1px white;
+    top:0;
+    color:whitesmoke;
+    background:transparent;
+    overflow:hidden;
+    clip:rect(0,900px,0,0); 
+    animation:noise-anim 1s infinite linear alternate-reverse;
+  }
+  
+  @keyframes noise-anim-2{
+    $steps:10;
+    @for $i from 0 through $steps{
+      #{percentage($i*(1/$steps))}{
+        clip:rect(random(100)+px,9999px,random(100)+px,0);
+      }
+    }
+  }
+  .glitch:before{
+    content:attr(data-text);
+    position:absolute;
+    left:-0.1px;
+    text-shadow:-0.1px 0px blue; 
+    top:0;
+    color:rgb(242, 242, 251);
+    background:transparent;
+    overflow:hidden;
+    clip:rect(0,900px,0,0); 
+    animation:noise-anim-2 1s infinite linear alternate-reverse;
+  }
+
